@@ -39,11 +39,7 @@ const NavLink = styled.li`
         </List>
       </Nav>
 
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <Route exact path="/" component={Home}/>
     </div>
     </Router>
   );

@@ -1,9 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link  } from "react-router-dom";
+import styled from "styled-components";
 
 const Form = () => {
+
+const Container = styled.div`
+    width: 80%;
+    display: flex;
+    justify-content: center;
+`
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid black;
+`
   return (
-    <form id="pizza-form">
+    <Container>
+    <Form id="pizza-form">
         <label>
             Name
             <input id="name-input"/>
@@ -30,7 +43,8 @@ const Form = () => {
         </label>
         <input id="order-button" type='submit'/>
 
-    </form>
+    </Form>
+    </Container>
   );
 };
 export default Form;

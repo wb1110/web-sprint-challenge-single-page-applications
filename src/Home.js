@@ -22,17 +22,13 @@ const Button = styled.button`
 
   return (
     <Router>
-    <div className='main-container'>
-        <Background className='home-image'>
-            <h1>Your favorite food, delivered while coding</h1>
-            <Button id="order-pizza"><Link to="/pizza" className="linkStyle">Pizza?</Link></Button>
-        </Background>
-    </div>
-    <Switch>
-        <Route path="/pizza">
-          <Form />
-        </Route>
-    </Switch>
+        <div className='main-container'>
+            <Background className='home-image'>
+                <h1>Your favorite food, delivered while coding</h1>
+                <Button id="order-pizza"><Link to="/pizza" className="linkStyle">Pizza?</Link></Button>
+            </Background>
+        </div>
+        <Route exact path="/pizza" component={Form}/>
     </Router>
 
   );
