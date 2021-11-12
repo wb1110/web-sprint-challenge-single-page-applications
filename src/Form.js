@@ -15,7 +15,7 @@ const FormStyle = styled.form`
 
 const Form = (props) => {
     const {   change, submit    } = props;
-    const {username, checked, special} = props.formValues;
+    const {username, size, checked, special} = props.formValues;
 
     const onChange = (e) => {
         const { name, value, checked, type   } = e.target;
@@ -42,11 +42,11 @@ const Form = (props) => {
         </label>
         <label>
             Choice of Size
-            <select id="size-dropdown">
-                <option onChange={onChange} checked={checked}value="null">Select a size</option>
-                <option onChange={onChange} checked={checked}value="small">Small</option>
-                <option onChange={onChange} checked={checked}value="medium">Medium</option>
-                <option onChange={onChange} checked={checked}value="large">Large</option>
+            <select id="size-dropdown" value={size} onChange={onChange} name="size" >
+                <option value="Select a size">Select a size</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
             </select>
         </label>
         <div>

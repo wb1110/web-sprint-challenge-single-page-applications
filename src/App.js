@@ -35,7 +35,7 @@ const Background = styled.div`
 `
 const initialFormValues = {
   username: "",
-  size: "",
+  size: "Select a size",
   pepperoni: false,
   sausage: false,
   canadianBacon: false,
@@ -55,11 +55,12 @@ const initialFormValues = {
 
 function App () {
   const [formValues, setFormValues] = useState(initialFormValues);
+  const [orders, setOrders] = useState([]);
 
   const handleSubmit = () => {
     axios.post('https://reqres.in/api/orders', formValues)
     .then(res => {
-      setFormValues(res.data)
+      setOrders(res.data)
     })
     .catch(err => {
       console.log(err);
