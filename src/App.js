@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link  } from "react-router-dom";
-import Home from "./Home";
+import Form from "./Form";
+import Pizza from "./Assets/Pizza.jpg";
 import styled from "styled-components";
+import "./index.css";
 
 const App = () => {
 
@@ -24,6 +26,18 @@ const NavLink = styled.li`
   justify-content: center;
   align-items: center;
 `
+const Background = styled.div`
+    background-image: url(${Pizza});
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+`
+const Button = styled.button`
+    padding: 0.5% 1.5%;
+    text-decoration: none;
+`
   return (
     <Router>
     <div className='main-container'>
@@ -38,8 +52,13 @@ const NavLink = styled.li`
           </NavLink>
         </List>
       </Nav>
+      <Background className='home-image'>
+          <h1>Your favorite food, delivered while coding</h1>
+          <Button id="order-pizza"><Link to="/pizza" className="linkStyle">Pizza?</Link></Button>
+      </Background>
 
-      <Route exact path="/" component={Home}/>
+      <Route exact path="/" />
+      <Route path="/pizza" component={Form}/>
     </div>
     </Router>
   );
