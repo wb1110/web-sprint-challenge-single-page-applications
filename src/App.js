@@ -60,7 +60,7 @@ function App () {
   const handleSubmit = () => {
     axios.post('https://reqres.in/api/orders', formValues)
     .then(res => {
-      setOrders(res.data)
+      console.log(res)
     })
     .catch(err => {
       console.log(err);
