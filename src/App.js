@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link  } from "react-router-dom";
+import { Route, Link  } from "react-router-dom";
 import Form from "./Form";
 import Pizza from "./Assets/Pizza.jpg";
 import styled from "styled-components";
@@ -44,7 +44,6 @@ function App () {
   `
 
   return (
-    <Router>
     <div className='main-container'>
       <Nav>
         <h1>Lambda Eats</h1>
@@ -65,7 +64,6 @@ function App () {
       <Route exact path="/"/>
  
     </div>
-    </Router>
   );
 };
 export default App;
