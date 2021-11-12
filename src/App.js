@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link  } from "react-router-dom";
 import Form from "./Form";
 import Pizza from "./Assets/Pizza.jpg";
 import styled from "styled-components";
 import "./index.css";
 
-const App = () => {
+function App () {
 
 const Nav = styled.nav`
   display: flex;
@@ -34,10 +34,7 @@ const Background = styled.div`
     flex-direction: column;
     height: 50vh;
 `
-const Button = styled.button`
-    padding: 0.5% 1.5%;
-    text-decoration: none;
-`
+
   return (
     <Router>
     <div className='main-container'>
@@ -54,7 +51,7 @@ const Button = styled.button`
       </Nav>
       <Background className='home-image'>
           <h1>Your favorite food, delivered while coding</h1>
-          <Button id="order-pizza"><Link to="/pizza" className="linkStyle">Pizza?</Link></Button>
+          <Link to="/pizza" id="order-pizza">Pizza?</Link>
       </Background>
 
       <Route exact path="/" />

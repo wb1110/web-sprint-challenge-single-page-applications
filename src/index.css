@@ -16,3 +16,11 @@ code {
   text-decoration: none;
   color: black;
 }
+
+#order-pizza {
+  padding: 0.5% 1.5%;
+  text-decoration: none;
+  border: solid black 1px;
+  background-color: white;
+  color: black;
+}
