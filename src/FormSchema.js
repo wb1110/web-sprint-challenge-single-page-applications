@@ -1,10 +1,11 @@
-// import * as yup from 'yup';
+import * as Yup from 'yup';
 
-// const FormSchema = () => {
-//     let schema = yup.object().shape({
-//         name: yup.string().required(),
-//         size: yup.
-//     })
-// }
+const formSchema = Yup.object().shape({
+        username: Yup
+        .string()
+        .required()
+        .min(2, "name must be at least 2 characters")
+    });
 
-// export default FormSchema;
+
+export default formSchema;

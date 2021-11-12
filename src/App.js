@@ -5,6 +5,8 @@ import Pizza from "./Assets/Pizza.jpg";
 import styled from "styled-components";
 import "./index.css";
 import axios from "axios";
+import formSchema from "./FormSchema";
+import * as yup from 'yup';
 
 const Nav = styled.nav`
 display: flex;
@@ -36,6 +38,7 @@ const Background = styled.div`
 const initialFormValues = {
   username: "",
   size: "Select a size",
+  sauce: false,
   pepperoni: false,
   sausage: false,
   canadianBacon: false,
@@ -53,9 +56,32 @@ const initialFormValues = {
   special: ""
 }
 
+const initialFormErrors = {
+  username: "",
+  size: "Select a size",
+  sauce: false,
+  pepperoni: false,
+  sausage: false,
+  canadianBacon: false,
+  spicyItalian: false,
+  grilledChicken: false,
+  onions: false,
+  greenPepper: false,
+  dicedTomatos: false,
+  blackOlives: false,
+  roastedGarlic: false,
+  artichokeHearts: false,
+  threeCheese: false,
+  pineapple: false,
+  extraCheese: false,
+  special: ""
+}
+
+
+
 function App () {
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [orders, setOrders] = useState([]);
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
 
   const handleSubmit = () => {
     axios.post('https://reqres.in/api/orders', formValues)
@@ -66,7 +92,16 @@ function App () {
       console.log(err);
     });
   }
+
+  const validate = (name, value) => {
+    yup.reach(formSchema, name)
+    .validate(value)
+    .then(() => setFormErrors({ ...formErrors, [name]: ''}))
+    .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}))
+  }
+
   const handleChange = (name, value) => {
+    validate(name, value);
     setFormValues({ ...formValues, [name]: value});
   }
 
@@ -92,7 +127,7 @@ function App () {
           <Link id="order-pizza" to="/pizza" >Pizza?</Link>
       </Background>
       <Route path="/pizza">
-        <Form formValues={formValues} change={handleChange} submit={handleSubmit}/>
+        <Form formValues={formValues} change={handleChange} submit={handleSubmit} errors={formErrors}/>
       </Route>
       <Route exact path="/"/>
  

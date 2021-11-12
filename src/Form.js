@@ -14,7 +14,7 @@ const FormStyle = styled.form`
 `
 
 const Form = (props) => {
-    const {   change, submit    } = props;
+    const {   change, submit, errors    } = props;
     const {username, size, checked, special} = props.formValues;
 
     const onChange = (e) => {
@@ -31,6 +31,7 @@ const Form = (props) => {
   return (
     <Container>
     <FormStyle id="pizza-form" onSubmit={onSubmit}>
+        <p>{errors.username}</p>
         <label>
             Name
             <input id="name-input"
