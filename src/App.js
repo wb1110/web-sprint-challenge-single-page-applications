@@ -7,33 +7,41 @@ import "./index.css";
 
 function App () {
 
-const Nav = styled.nav`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0 2%;
-`
-const List = styled.ul`
-  display: flex;
-`
-const NavLink = styled.li`
-  text-decoration: none;
-  list-style-type: none;
-  border: solid black;
-  padding: 0 2%;
-  width: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-const Background = styled.div`
-    background-image: url(${Pizza});
+  const initialForm = {
+    name: "",
+    size: "",
+    sauce: "",
+    substitute: "",
+    special: ""
+  }
+
+  const Nav = styled.nav`
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2%;
+  `
+  const List = styled.ul`
+    display: flex;
+  `
+  const NavLink = styled.li`
+    text-decoration: none;
+    list-style-type: none;
+    border: solid black;
+    padding: 0 2%;
+    width: 20vh;
+    display: flex;
     justify-content: center;
-    flex-direction: column;
-    height: 50vh;
-`
+    align-items: center;
+  `
+  const Background = styled.div`
+      background-image: url(${Pizza});
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 50vh;
+  `
 
   return (
     <Router>
