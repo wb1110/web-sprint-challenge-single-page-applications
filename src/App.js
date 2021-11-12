@@ -59,11 +59,11 @@ function App () {
       </Nav>
       <Background className='home-image'>
           <h1>Your favorite food, delivered while coding</h1>
-          <Link to="/pizza" id="order-pizza">Pizza?</Link>
+          <Link id="order-pizza" to="/pizza" >Pizza?</Link>
       </Background>
-
-      <Route exact path="/" />
       <Route path="/pizza" component={Form}/>
+      <Route exact path="/"/>
+ 
     </div>
     </Router>
   );
