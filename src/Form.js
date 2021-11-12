@@ -3,9 +3,34 @@ import { BrowserRouter as Router, Switch, Route, Link  } from "react-router-dom"
 
 const Form = () => {
   return (
-    <div>
+    <form id="pizza-form">
+        <label>
+            Name
+            <input id="name-input"/>
+        </label>
+        <label>
+            Choice of Size
+            <input id="size-dropdown"/>
+        </label>
+        <label>
+            Choice of Sauce
+            <input />
+        </label>
+        <label>
+            Add Toppings
+            <input />
+        </label>
+        <label>
+            Choice of Substitute
+            <input />
+        </label>
+        <label>
+            Special Instructions
+            <input id="special-text"/>
+        </label>
+        <input id="order-button" type='submit'/>
 
-    </div>
+    </form>
   );
 };
 export default Form;
